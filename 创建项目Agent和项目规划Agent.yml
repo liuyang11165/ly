@@ -1,0 +1,637 @@
+app:
+  description: ''
+  icon: "\U0001F916"
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: "\u521B\u5EFA\u9879\u76EEAgent\u548C\u9879\u76EE\u89C4\u5212Agent"
+kind: app
+version: 0.1.0
+workflow:
+  environment_variables: []
+  features:
+    file_upload:
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: if-else
+      id: start-source-1721738874466-target
+      source: start
+      sourceHandle: source
+      target: '1721738874466'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1721738874466-2b0d0c40-bf1f-4ef6-b477-cd70977f519e-1721739074427-target
+      source: '1721738874466'
+      sourceHandle: 2b0d0c40-bf1f-4ef6-b477-cd70977f519e
+      target: '1721739074427'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1721738874466-cd7e7568-8fe9-4102-97f3-a1223201dd73-1721739080057-target
+      source: '1721738874466'
+      sourceHandle: cd7e7568-8fe9-4102-97f3-a1223201dd73
+      target: '1721739080057'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1721739074427-source-1721741397675-target
+      selected: false
+      source: '1721739074427'
+      sourceHandle: source
+      target: '1721741397675'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1721738874466-true-1721741245322-target
+      source: '1721738874466'
+      sourceHandle: 'true'
+      target: '1721741245322'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1721876020189-source-1721876479861-target
+      source: '1721876020189'
+      sourceHandle: source
+      target: '1721876479861'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: answer
+        targetType: answer
+      id: 1721741397675-source-1721876624936-target
+      source: '1721741397675'
+      sourceHandle: source
+      target: '1721876624936'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: answer
+        targetType: llm
+      id: 1721876624936-source-1721876020189-target
+      source: '1721876624936'
+      sourceHandle: source
+      target: '1721876020189'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: START
+        type: start
+        variables:
+        - label: background
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: background
+        - label: CHOOSE
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: CHOOSE
+        - label: flag
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: flag
+        - label: need
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: need
+        - label: team
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: team
+        - label: monney
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: monney
+        - label: time
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: time
+        - label: result
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: result
+      height: 271
+      id: start
+      position:
+        x: -289.3564494589068
+        y: 266.27897696449463
+      positionAbsolute:
+        x: -289.3564494589068
+        y: 266.27897696449463
+      selected: false
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 8aedfe53-8754-4372-a9fa-29e97431948e
+            value: "\u624B\u52A8\u521B\u5EFA\u9879\u76EE"
+            varType: string
+            variable_selector:
+            - sys
+            - query
+          id: 'true'
+          logical_operator: and
+        - case_id: 2b0d0c40-bf1f-4ef6-b477-cd70977f519e
+          conditions:
+          - comparison_operator: contains
+            id: b2328a75-6f92-40ea-98c5-19bfd0c5702c
+            value: "AI\u8F85\u52A9\u521B\u5EFA\u9879\u76EE"
+            varType: string
+            variable_selector:
+            - start
+            - CHOOSE
+          id: 2b0d0c40-bf1f-4ef6-b477-cd70977f519e
+          logical_operator: and
+        - case_id: cd7e7568-8fe9-4102-97f3-a1223201dd73
+          conditions:
+          - comparison_operator: contains
+            id: 9ff9dc69-1cb2-4e5c-9949-fc584f46d11b
+            value: "\u52A0\u5165\u5176\u4ED6\u9879\u76EE"
+            varType: string
+            variable_selector:
+            - start
+            - CHOOSE
+          id: cd7e7568-8fe9-4102-97f3-a1223201dd73
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: "\u6761\u4EF6\u5206\u652F"
+        type: if-else
+      height: 221
+      id: '1721738874466'
+      position:
+        x: -10.330956975830588
+        y: 266.27897696449463
+      positionAbsolute:
+        x: -10.330956975830588
+        y: 266.27897696449463
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-3.5-turbo
+          provider: openai
+        prompt_template:
+        - id: 83a21b4d-97a8-4698-82d2-e3050ead9aa4
+          role: system
+          text: "\u6240\u9700\u4FE1\u606F\uFF1A\n1. **\u9879\u76EE\u80CC\u666F**{{#start.background#}}\uFF1A\
+            \u63CF\u8FF0\u9879\u76EE\u53D1\u8D77\u7684\u539F\u56E0\uFF0C\u9879\u76EE\
+            \u89E3\u51B3\u7684\u95EE\u9898\u6216\u6EE1\u8DB3\u7684\u9700\u6C42\u3002\
+            \n2. **\u9879\u76EE\u76EE\u6807**{{#start.flag#}}\uFF1A\u660E\u786E\u9879\
+            \u76EE\u5E0C\u671B\u5B9E\u73B0\u7684\u5177\u4F53\u76EE\u6807\u6216\u6210\
+            \u679C\u3002\n3. **\u57FA\u672C\u9700\u6C42**{{#start.need#}}\uFF1A\u5217\
+            \u51FA\u9879\u76EE\u5FC5\u987B\u6EE1\u8DB3\u7684\u57FA\u672C\u529F\u80FD\
+            \u6216\u6027\u80FD\u8981\u6C42\u3002\n4. **\u9884\u671F\u6210\u679C**{{#start.result#}}\uFF1A\
+            \u63CF\u8FF0\u9879\u76EE\u5B8C\u6210\u540E\u671F\u671B\u8FBE\u5230\u7684\
+            \u6548\u679C\u6216\u5F71\u54CD\u3002\n5. **\u65F6\u95F4\u6846\u67B6**{{#start.time#}}\uFF1A\
+            \u63D0\u4F9B\u9879\u76EE\u7684\u9884\u671F\u5F00\u59CB\u548C\u7ED3\u675F\
+            \u65F6\u95F4\u3002\n6. **\u9884\u7B97\u8303\u56F4**{{#start.monney#}}\uFF1A\
+            \u5982\u679C\u6709\u7684\u8BDD\uFF0C\u63D0\u4F9B\u9879\u76EE\u7684\u9884\
+            \u7B97\u9650\u5236\u3002\n7. **\u56E2\u961F\u548C\u8D44\u6E90**{{#start.team#}}\uFF1A\
+            \u5982\u679C\u6709\u521D\u6B65\u7684\u60F3\u6CD5\uFF0C\u53EF\u4EE5\u63CF\
+            \u8FF0\u56E2\u961F\u7684\u7EC4\u6210\u6216\u6240\u9700\u7684\u8D44\u6E90\
+            \u3002\n\n\u4E25\u683C\u6309\u7167\u4EE5\u4E0B\u683C\u5F0F\u56DE\u7B54\
+            \uFF1A\n\n1. **\u9879\u76EE\u6982\u8FF0**\uFF1A\n   - \u9879\u76EE\u540D\
+            \u79F0\n   - \u9879\u76EE\u76EE\u6807\u548C\u76EE\u7684\n   - \u9879\u76EE\
+            \u8303\u56F4\u548C\u9650\u5236\n\n2. **\u9879\u76EE\u56E2\u961F\u548C\u7EC4\
+            \u7EC7\u7ED3\u6784**\uFF1A\n   - \u9879\u76EE\u7ECF\u7406\u548C\u56E2\u961F\
+            \u6210\u5458\n   - \u89D2\u8272\u548C\u804C\u8D23\n   - \u7EC4\u7EC7\u7ED3\
+            \u6784\u56FE\n\n3. **\u9879\u76EE\u80CC\u666F**\uFF1A\n   - \u9879\u76EE\
+            \u53D1\u8D77\u7684\u539F\u56E0\n   - \u9879\u76EE\u7684\u5386\u53F2\u80CC\
+            \u666F\n   - \u9879\u76EE\u7684\u91CD\u8981\u6027\n\n4. **\u9879\u76EE\
+            \u76EE\u6807**\uFF1A\n   - SMART\u76EE\u6807\uFF08\u5177\u4F53\u3001\u53EF\
+            \u8861\u91CF\u3001\u53EF\u8FBE\u6210\u3001\u76F8\u5173\u3001\u65F6\u9650\
+            \uFF09\n\n5. **\u9879\u76EE\u9700\u6C42\u5206\u6790**\uFF1A\n   - \u529F\
+            \u80FD\u9700\u6C42\n   - \u975E\u529F\u80FD\u9700\u6C42\n   - \u7528\u6237\
+            \u9700\u6C42\n\n6. **\u9879\u76EE\u98CE\u9669\u7BA1\u7406**\uFF1A\n  \
+            \ - \u98CE\u9669\u8BC6\u522B\n   - \u98CE\u9669\u8BC4\u4F30\n   - \u98CE\
+            \u9669\u7F13\u89E3\u8BA1\u5212\n\n7. **\u9879\u76EE\u65F6\u95F4\u8868\
+            **\uFF1A\n   - \u9879\u76EE\u91CC\u7A0B\u7891\n   - \u4EFB\u52A1\u548C\
+            \u6D3B\u52A8\u5217\u8868\n   - \u7518\u7279\u56FE\u6216\u65F6\u95F4\u7EBF\
+            \n\n8. **\u8D44\u6E90\u8BA1\u5212**\uFF1A\n   - \u4EBA\u529B\u8D44\u6E90\
+            \u9700\u6C42\n   - \u7269\u7406\u8D44\u6E90\u9700\u6C42\n   - \u8D22\u52A1\
+            \u8D44\u6E90\u9700\u6C42\n\n9. **\u9879\u76EE\u9884\u7B97**\uFF1A\n  \
+            \ - \u6210\u672C\u4F30\u7B97\n   - \u6210\u672C\u9884\u7B97\n   - \u6210\
+            \u672C\u63A7\u5236\u8BA1\u5212\n\n10. **\u8D28\u91CF\u7BA1\u7406\u8BA1\
+            \u5212**\uFF1A\n    - \u8D28\u91CF\u6807\u51C6\n    - \u8D28\u91CF\u4FDD\
+            \u8BC1\u6D3B\u52A8\n    - \u8D28\u91CF\u63A7\u5236\u65B9\u6CD5\n\n11.\
+            \ **\u6C9F\u901A\u8BA1\u5212**\uFF1A\n    - \u6C9F\u901A\u76EE\u6807\n\
+            \    - \u6C9F\u901A\u7B56\u7565\n    - \u6C9F\u901A\u5DE5\u5177\u548C\u9891\
+            \u7387\n\n12. **\u53D8\u66F4\u7BA1\u7406\u8BA1\u5212**\uFF1A\n    - \u53D8\
+            \u66F4\u63A7\u5236\u6D41\u7A0B\n    - \u53D8\u66F4\u8BF7\u6C42\u5904\u7406\
+            \n    - \u53D8\u66F4\u65E5\u5FD7\n\n13. **\u9879\u76EE\u76D1\u63A7\u548C\
+            \u63A7\u5236**\uFF1A\n    - \u76D1\u63A7\u6307\u6807\n    - \u63A7\u5236\
+            \u673A\u5236\n    - \u6027\u80FD\u62A5\u544A\n\n14. **\u9879\u76EE\u4EA4\
+            \u4ED8\u548C\u9A8C\u6536**\uFF1A\n    - \u4EA4\u4ED8\u7269\u6E05\u5355\
+            \n    - \u9A8C\u6536\u6807\u51C6\n    - \u7528\u6237\u9A8C\u6536\u6D4B\
+            \u8BD5\n\n15. **\u9879\u76EE\u6536\u5C3E**\uFF1A\n    - \u9879\u76EE\u5173\
+            \u95ED\u6D41\u7A0B\n    - \u7ECF\u9A8C\u6559\u8BAD\u8BB0\u5F55\n    -\
+            \ \u9879\u76EE\u6587\u6863\u5F52\u6863\n\n16. **\u9644\u4EF6\u548C\u652F\
+            \u6301\u6587\u6863**\uFF1A\n    - \u76F8\u5173\u653F\u7B56\u548C\u6807\
+            \u51C6\n    - \u6A21\u677F\u548C\u5DE5\u5177\n    - \u5176\u4ED6\u652F\
+            \u6301\u6587\u4EF6\n\u8BF7\u6309Json\u683C\u5F0F\u8F93\u51FA\uFF0C\u5E76\
+            \u4E14\u4E25\u683C\u6309\u7167\u4EE5\u4E0A\u683C\u5F0F\u8F93\u51FA\uFF01\
+            \uFF01\uFF01\n"
+        selected: false
+        title: LLM 2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1721739074427'
+      position:
+        x: 372.3690626418683
+        y: 413.4335435849668
+      positionAbsolute:
+        x: 372.3690626418683
+        y: 413.4335435849668
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: "\u8DF3\u8F6C\u5230\u9879\u76EE\u63A8\u8350\n"
+        desc: ''
+        selected: false
+        title: "\u76F4\u63A5\u56DE\u590D"
+        type: answer
+        variables: []
+      height: 103
+      id: '1721739080057'
+      position:
+        x: 372.3690626418683
+        y: 527.1244103440223
+      positionAbsolute:
+        x: 372.3690626418683
+        y: 527.1244103440223
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: "\u5F39\u51FA\u8868\u5355\u7531\u7528\u6237\u586B\u5199\u6587\u4EF6"
+        desc: ''
+        selected: false
+        title: "\u76F4\u63A5\u56DE\u590D 2"
+        type: answer
+        variables: []
+      height: 103
+      id: '1721741245322'
+      position:
+        x: 372.3690626418683
+        y: 274.0013692402061
+      positionAbsolute:
+        x: 372.3690626418683
+        y: 274.0013692402061
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1721739074427.text#}}'
+        desc: ''
+        selected: false
+        title: "\u76F4\u63A5\u56DE\u590D 3"
+        type: answer
+        variables: []
+      height: 106
+      id: '1721741397675'
+      position:
+        x: 728.0724300399378
+        y: 413.4335435849668
+      positionAbsolute:
+        x: 728.0724300399378
+        y: 413.4335435849668
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-3.5-turbo
+          provider: openai
+        prompt_template:
+        - id: d329b115-377c-479f-9197-96efc509e62a
+          role: system
+          text: "\u4F60\u662F\u4E00\u540D\u8D44\u6DF1\u9879\u76EE\u89C4\u5212\u5E08\
+            \uFF0C\u6839\u636E\u9879\u76EE\u6982\u8981{{#1721739074427.text#}}\u5199\
+            \u4E00\u4EFD\u8BE6\u7EC6\u7684\u9879\u76EE\u89C4\u5212\uFF0C\u5FC5\u987B\
+            \u5305\u62EC\u65E5\u671F\u8282\u70B9\uFF0C\u8FDB\u5EA6\u5B89\u6392\uFF0C\
+            \u4EBA\u5458\u5206\u5DE5\uFF0C\u6210\u679C\u68C0\u67E5\uFF0C\u4F1A\u8BAE\
+            \u9884\u5B9A\u7B49\u7B49\uFF0C\u8981\u6C42\u8D34\u8FD1\u771F\u5B9E\u6848\
+            \u4F8B\uFF0C\u5176\u4F59\u5185\u5BB9\u53EF\u4EE5\u6309\u7167\u9879\u76EE\
+            \u81EA\u884C\u8865\u5145\u3002\n\n\u8FD9\u662F\u4E00\u4E2A\u56DE\u7B54\
+            \u793A\u4F8B\uFF1A\n\u9879\u76EE\u540D\u79F0\uFF1A\u9E92\u9E9F\u4E91\u667A\
+            \u6167\u519C\u4E1A\u5E73\u53F0\n\u9879\u76EE\u6982\u8FF0\uFF1A \u9E92\u9E9F\
+            \u4E91\u667A\u6167\u519C\u4E1A\u5E73\u53F0\u662F\u4E00\u4E2A\u96C6\u6210\
+            \u4E86\u7269\u8054\u7F51\u3001\u4EBA\u5DE5\u667A\u80FD\u3001\u673A\u5668\
+            \u89C6\u89C9\u548C\u81EA\u52A8\u63A7\u5236\u6280\u672F\u7684\u667A\u80FD\
+            \u519C\u4E1A\u7CFB\u7EDF\u3002\u8BE5\u5E73\u53F0\u65E8\u5728\u63D0\u9AD8\
+            \u519C\u4E1A\u751F\u4EA7\u7684\u6548\u7387\u548C\u667A\u80FD\u5316\u6C34\
+            \u5E73\uFF0C\u5B9E\u73B0\u4F5C\u7269\u91C7\u6458\u548C\u519C\u573A\u7BA1\
+            \u7406\u7684\u81EA\u52A8\u5316\u3002\n\u9879\u76EE\u89C4\u5212\uFF1A\n\
+            \u4E00\u3001\u9879\u76EE\u542F\u52A8\u9636\u6BB5\uFF08\u7B2C1\u5468 -\
+            \ \u7B2C2\u5468\uFF09\n\u76EE\u6807\uFF1A\u9879\u76EE\u56E2\u961F\u7EC4\
+            \u5EFA\uFF0C\u9700\u6C42\u5206\u6790\uFF0C\u9879\u76EE\u8BA1\u5212\u4E66\
+            \u7F16\u5236\u3002\n\u4EFB\u52A1\uFF1A\n\u7EC4\u5EFA\u9879\u76EE\u56E2\
+            \u961F\uFF0C\u660E\u786E\u9879\u76EE\u7ECF\u7406\u3001\u6280\u672F\u8D1F\
+            \u8D23\u4EBA\u3001\u7814\u53D1\u4EBA\u5458\u3001\u6D4B\u8BD5\u4EBA\u5458\
+            \u7B49\u89D2\u8272\u3002\n\u5B8C\u6210\u5E02\u573A\u8C03\u7814\u548C\u9700\
+            \u6C42\u5206\u6790\u62A5\u544A\u3002\n\u7F16\u5236\u9879\u76EE\u8BA1\u5212\
+            \u4E66\uFF0C\u5305\u62EC\u9879\u76EE\u76EE\u6807\u3001\u8303\u56F4\u3001\
+            \u91CC\u7A0B\u7891\u3001\u9884\u7B97\u7B49\u3002\n\u4E8C\u3001\u8BBE\u8BA1\
+            \u9636\u6BB5\uFF08\u7B2C3\u5468 - \u7B2C8\u5468\uFF09\n\u76EE\u6807\uFF1A\
+            \u5B8C\u6210\u7CFB\u7EDF\u8BBE\u8BA1\uFF0C\u5305\u62EC\u786C\u4EF6\u9009\
+            \u578B\u3001\u8F6F\u4EF6\u67B6\u6784\u8BBE\u8BA1\u3001\u7528\u6237\u754C\
+            \u9762\u8BBE\u8BA1\u7B49\u3002\n\u4EFB\u52A1\uFF1A\n\u786C\u4EF6\u56E2\
+            \u961F\u5B8C\u6210\u667A\u80FD\u7EC8\u7AEF\u548C\u4E91\u670D\u52A1\u5668\
+            \u7684\u786C\u4EF6\u9009\u578B\u3002\n\u8F6F\u4EF6\u56E2\u961F\u5B8C\u6210\
+            \u7CFB\u7EDF\u8F6F\u4EF6\u67B6\u6784\u8BBE\u8BA1\uFF0C\u786E\u5B9A\u6280\
+            \u672F\u6808\u3002\n\u7528\u6237\u4F53\u9A8C\u56E2\u961F\u5B8C\u6210GUI\u64CD\
+            \u4F5C\u754C\u9762\u8BBE\u8BA1\u3002\n\u4E09\u3001\u5F00\u53D1\u9636\u6BB5\
+            \uFF08\u7B2C9\u5468 - \u7B2C20\u5468\uFF09\n\u76EE\u6807\uFF1A\u5B8C\u6210\
+            \u7CFB\u7EDF\u5F00\u53D1\uFF0C\u5305\u62EC\u4E91\u670D\u52A1\u5F00\u53D1\
+            \u3001\u667A\u80FD\u7EC8\u7AEF\u5F00\u53D1\u3001\u673A\u5668\u89C6\u89C9\
+            \u4E0E\u68C0\u6D4B\u6280\u672F\u5F00\u53D1\u7B49\u3002\n\u4EFB\u52A1\uFF1A\
+            \n\u4E91\u670D\u52A1\u56E2\u961F\u5F00\u53D1AI\u6A21\u578B\uFF0C\u5B9E\
+            \u73B0\u6570\u636E\u5206\u6790\u548C\u51B3\u7B56\u4E0B\u8FBE\u3002\n\u667A\
+            \u80FD\u7EC8\u7AEF\u56E2\u961F\u5F00\u53D1\u7269\u8054\u7F51\u901A\u4FE1\
+            \u6A21\u5757\uFF0C\u5B9E\u73B0\u6307\u4EE4\u6267\u884C\u548C\u6570\u636E\
+            \u6536\u96C6\u3002\n\u673A\u5668\u89C6\u89C9\u56E2\u961F\u5F00\u53D1\u76EE\
+            \u6807\u68C0\u6D4B\u6280\u672F\uFF0C\u5B9E\u73B0\u4F5C\u7269\u8BC6\u522B\
+            \u548C\u5B9A\u4F4D\u3002\n\u56DB\u3001\u6D4B\u8BD5\u9636\u6BB5\uFF08\u7B2C\
+            21\u5468 - \u7B2C24\u5468\uFF09\n\u76EE\u6807\uFF1A\u5B8C\u6210\u7CFB\u7EDF\
+            \u6D4B\u8BD5\uFF0C\u786E\u4FDD\u5404\u9879\u529F\u80FD\u6B63\u5E38\u8FD0\
+            \u884C\u3002\n\u4EFB\u52A1\uFF1A\n\u6D4B\u8BD5\u56E2\u961F\u5236\u5B9A\
+            \u6D4B\u8BD5\u8BA1\u5212\uFF0C\u5305\u62EC\u5355\u5143\u6D4B\u8BD5\u3001\
+            \u96C6\u6210\u6D4B\u8BD5\u548C\u7CFB\u7EDF\u6D4B\u8BD5\u3002\n\u5B8C\u6210\
+            \u6D4B\u8BD5\u73AF\u5883\u642D\u5EFA\u3002\n\u6267\u884C\u6D4B\u8BD5\u8BA1\
+            \u5212\uFF0C\u8BB0\u5F55\u5E76\u4FEE\u590D\u53D1\u73B0\u7684\u95EE\u9898\
+            \u3002\n\u4E94\u3001\u90E8\u7F72\u9636\u6BB5\uFF08\u7B2C25\u5468 - \u7B2C\
+            28\u5468\uFF09\n\u76EE\u6807\uFF1A\u5728\u9009\u5B9A\u7684\u519C\u573A\
+            \u90E8\u7F72\u7CFB\u7EDF\uFF0C\u8FDB\u884C\u73B0\u573A\u8C03\u8BD5\u3002\
+            \n\u4EFB\u52A1\uFF1A\n\u90E8\u7F72\u56E2\u961F\u8D1F\u8D23\u7CFB\u7EDF\
+            \u7684\u73B0\u573A\u5B89\u88C5\u548C\u914D\u7F6E\u3002\n\u5B8C\u6210\u7CFB\
+            \u7EDF\u4E0E\u519C\u573A\u73B0\u6709\u8BBE\u65BD\u7684\u96C6\u6210\u3002\
+            \n\u8FDB\u884C\u7CFB\u7EDF\u8C03\u8BD5\uFF0C\u786E\u4FDD\u7CFB\u7EDF\u7A33\
+            \u5B9A\u8FD0\u884C\u3002\n\u516D\u3001\u8BD5\u8FD0\u884C\u9636\u6BB5\uFF08\
+            \u7B2C29\u5468 - \u7B2C32\u5468\uFF09\n\u76EE\u6807\uFF1A\u7CFB\u7EDF\u8BD5\
+            \u8FD0\u884C\uFF0C\u6536\u96C6\u7528\u6237\u53CD\u9988\uFF0C\u4F18\u5316\
+            \u7CFB\u7EDF\u6027\u80FD\u3002\n\u4EFB\u52A1\uFF1A\n\u76D1\u63A7\u7CFB\
+            \u7EDF\u8FD0\u884C\u60C5\u51B5\uFF0C\u8BB0\u5F55\u8FD0\u884C\u6570\u636E\
+            \u3002\n\u6536\u96C6\u519C\u573A\u5DE5\u4F5C\u4EBA\u5458\u548C\u7528\u6237\
+            \u7684\u53CD\u9988\u3002\n\u6839\u636E\u53CD\u9988\u8FDB\u884C\u7CFB\u7EDF\
+            \u4F18\u5316\u3002\n\u4E03\u3001\u6B63\u5F0F\u8FD0\u884C\u4E0E\u7EF4\u62A4\
+            \u9636\u6BB5\uFF08\u7B2C33\u5468 - \u6301\u7EED\uFF09\n\u76EE\u6807\uFF1A\
+            \u7CFB\u7EDF\u6B63\u5F0F\u8FD0\u884C\uFF0C\u63D0\u4F9B\u6301\u7EED\u7684\
+            \u6280\u672F\u652F\u6301\u548C\u7CFB\u7EDF\u5347\u7EA7\u3002\n\u4EFB\u52A1\
+            \uFF1A\n\u9879\u76EE\u56E2\u961F\u8F6C\u5165\u7EF4\u62A4\u6A21\u5F0F\uFF0C\
+            \u63D0\u4F9B\u6280\u672F\u652F\u6301\u3002\n\u5B9A\u671F\u68C0\u67E5\u7CFB\
+            \u7EDF\u8FD0\u884C\u72B6\u6001\uFF0C\u9884\u9632\u548C\u89E3\u51B3\u53EF\
+            \u80FD\u51FA\u73B0\u7684\u95EE\u9898\u3002\n\u6839\u636E\u6280\u672F\u53D1\
+            \u5C55\u548C\u7528\u6237\u9700\u6C42\uFF0C\u89C4\u5212\u7CFB\u7EDF\u5347\
+            \u7EA7\u3002\n\u516B\u3001\u9879\u76EE\u7BA1\u7406\n\u8FDB\u5EA6\u5B89\
+            \u6392\uFF1A\u6309\u7167\u4E0A\u8FF0\u65F6\u95F4\u8282\u70B9\uFF0C\u5B9A\
+            \u671F\u68C0\u67E5\u9879\u76EE\u8FDB\u5EA6\uFF0C\u786E\u4FDD\u6309\u8BA1\
+            \u5212\u6267\u884C\u3002\n\u4EBA\u5458\u5206\u5DE5\uFF1A\u660E\u786E\u6BCF\
+            \u4E2A\u56E2\u961F\u6210\u5458\u7684\u804C\u8D23\u548C\u4EFB\u52A1\uFF0C\
+            \u786E\u4FDD\u9AD8\u6548\u534F\u4F5C\u3002\n\u6210\u679C\u68C0\u67E5\uFF1A\
+            \u5728\u6BCF\u4E2A\u9636\u6BB5\u7ED3\u675F\u65F6\u8FDB\u884C\u6210\u679C\
+            \u8BC4\u5BA1\uFF0C\u786E\u4FDD\u8D28\u91CF\u7B26\u5408\u9884\u671F\u3002\
+            \n\u4F1A\u8BAE\u9884\u5B9A\uFF1A\u6BCF\u5468\u4E3E\u884C\u9879\u76EE\u8FDB\
+            \u5EA6\u4F1A\u8BAE\uFF0C\u6BCF\u6708\u4E3E\u884C\u9879\u76EE\u8BC4\u5BA1\
+            \u4F1A\u8BAE\u3002\n\u4E5D\u3001\u98CE\u9669\u7BA1\u7406\n\u8BC6\u522B\
+            \u9879\u76EE\u53EF\u80FD\u9762\u4E34\u7684\u98CE\u9669\uFF0C\u5982\u6280\
+            \u672F\u98CE\u9669\u3001\u5E02\u573A\u98CE\u9669\u7B49\uFF0C\u5E76\u5236\
+            \u5B9A\u76F8\u5E94\u7684\u5E94\u5BF9\u63AA\u65BD\u3002\n\u5341\u3001\u9884\
+            \u7B97\u4E0E\u8D44\u6E90\n\u6839\u636E\u9879\u76EE\u8BA1\u5212\uFF0C\u5408\
+            \u7406\u5206\u914D\u9884\u7B97\u548C\u8D44\u6E90\uFF0C\u786E\u4FDD\u9879\
+            \u76EE\u987A\u5229\u8FDB\u884C\u3002\n\u5341\u4E00\u3001\u9879\u76EE\u6587\
+            \u6863\n\u7EF4\u62A4\u9879\u76EE\u6587\u6863\uFF0C\u5305\u62EC\u8BBE\u8BA1\
+            \u6587\u6863\u3001\u6D4B\u8BD5\u62A5\u544A\u3001\u7528\u6237\u624B\u518C\
+            \u7B49\uFF0C\u786E\u4FDD\u77E5\u8BC6\u4F20\u627F\u548C\u9879\u76EE\u53EF\
+            \u6301\u7EED\u6027\u3002\n\u901A\u8FC7\u4EE5\u4E0A\u89C4\u5212\uFF0C\u9E92\
+            \u9E9F\u4E91\u667A\u6167\u519C\u4E1A\u5E73\u53F0\u9879\u76EE\u5C06\u6709\
+            \u5E8F\u63A8\u8FDB\uFF0C\u6700\u7EC8\u5B9E\u73B0\u9879\u76EE\u76EE\u6807\
+            \uFF0C\u4E3A\u519C\u4E1A\u73B0\u4EE3\u5316\u8D21\u732E\u529B\u91CF\u3002\
+            \n\u5341\u4E8C\u3001\u4F1A\u8BAE\u5B89\u6392\n1. \u9879\u76EE\u542F\u52A8\
+            \u4F1A\u8BAE\uFF08\u7B2C1\u5468 - \u7B2C2\u5468\uFF09\n\u65F6\u95F4\uFF1A\
+            \u9879\u76EE\u542F\u52A8\u7B2C1\u5929\uFF0C\u4E0A\u53489:00 - 11:00\u3002\
+            \n\u53C2\u4E0E\u8005\uFF1A\u5168\u4F53\u9879\u76EE\u56E2\u961F\u6210\u5458\
+            \u3002\n\u76EE\u7684\uFF1A\u4ECB\u7ECD\u9879\u76EE\u6982\u51B5\uFF0C\u5206\
+            \u914D\u4EFB\u52A1\uFF0C\u660E\u786E\u89D2\u8272\u548C\u8D23\u4EFB\u3002\
+            \n2. \u5468\u8FDB\u5EA6\u4F1A\u8BAE\uFF08\u7B2C3\u5468 - \u7B2C32\u5468\
+            \uFF09\n\u65F6\u95F4\uFF1A\u6BCF\u5468\u4E00\uFF0C\u4E0A\u53489:00 - 10:00\u3002\
+            \n\u53C2\u4E0E\u8005\uFF1A\u9879\u76EE\u56E2\u961F\u5168\u4F53\u6210\u5458\
+            \u3002\n\u76EE\u7684\uFF1A\u56DE\u987E\u4E0A\u5468\u5DE5\u4F5C\uFF0C\u8BA8\
+            \u8BBA\u95EE\u9898\uFF0C\u5B89\u6392\u672C\u5468\u4EFB\u52A1\u3002\n3.\
+            \ \u8BBE\u8BA1\u8BC4\u5BA1\u4F1A\u8BAE\uFF08\u7B2C8\u5468\uFF09\n\u65F6\
+            \u95F4\uFF1A\u8BBE\u8BA1\u9636\u6BB5\u7ED3\u675F\u524D1\u5929\uFF0C\u4E0B\
+            \u53482:00 - 4:00\u3002\n\u53C2\u4E0E\u8005\uFF1A\u6280\u672F\u8D1F\u8D23\
+            \u4EBA\u3001\u7814\u53D1\u56E2\u961F\u3001\u7528\u6237\u4F53\u9A8C\u56E2\
+            \u961F\u3002\n\u76EE\u7684\uFF1A\u8BC4\u5BA1\u7CFB\u7EDF\u8BBE\u8BA1\uFF0C\
+            \u786E\u4FDD\u8BBE\u8BA1\u6EE1\u8DB3\u9700\u6C42\u3002\n4. \u5F00\u53D1\
+            \u91CC\u7A0B\u7891\u4F1A\u8BAE\uFF08\u7B2C12\u5468\u3001\u7B2C16\u5468\
+            \u3001\u7B2C20\u5468\uFF09\n\u65F6\u95F4\uFF1A\u5404\u5F00\u53D1\u9636\
+            \u6BB5\u7ED3\u675F\u524D1\u5929\uFF0C\u4E0B\u53483:00 - 5:00\u3002\n\u53C2\
+            \u4E0E\u8005\uFF1A\u9879\u76EE\u7ECF\u7406\u3001\u6280\u672F\u8D1F\u8D23\
+            \u4EBA\u3001\u7814\u53D1\u56E2\u961F\u3002\n\u76EE\u7684\uFF1A\u68C0\u67E5\
+            \u5F00\u53D1\u8FDB\u5EA6\uFF0C\u8BA8\u8BBA\u6280\u672F\u95EE\u9898\uFF0C\
+            \u786E\u4FDD\u5F00\u53D1\u6309\u8BA1\u5212\u8FDB\u884C\u3002\n5. \u6D4B\
+            \u8BD5\u8BA1\u5212\u4F1A\u8BAE\uFF08\u7B2C21\u5468\uFF09\n\u65F6\u95F4\
+            \uFF1A\u6D4B\u8BD5\u9636\u6BB5\u5F00\u59CB\u7B2C1\u5929\uFF0C\u4E0A\u5348\
+            10:00 - 11:30\u3002\n\u53C2\u4E0E\u8005\uFF1A\u9879\u76EE\u7ECF\u7406\u3001\
+            \u6D4B\u8BD5\u56E2\u961F\u3001\u6280\u672F\u8D1F\u8D23\u4EBA\u3002\n\u76EE\
+            \u7684\uFF1A\u8BA8\u8BBA\u6D4B\u8BD5\u8BA1\u5212\uFF0C\u786E\u4FDD\u6D4B\
+            \u8BD5\u5168\u9762\u8986\u76D6\u3002\n6. \u6D4B\u8BD5\u7ED3\u679C\u8BC4\
+            \u5BA1\u4F1A\u8BAE\uFF08\u7B2C24\u5468\uFF09\n\u65F6\u95F4\uFF1A\u6D4B\
+            \u8BD5\u9636\u6BB5\u7ED3\u675F\u524D1\u5929\uFF0C\u4E0B\u53482:00 - 4:00\u3002\
+            \n\u53C2\u4E0E\u8005\uFF1A\u9879\u76EE\u7ECF\u7406\u3001\u6D4B\u8BD5\u56E2\
+            \u961F\u3001\u7814\u53D1\u56E2\u961F\u3002\n\u76EE\u7684\uFF1A\u8BC4\u5BA1\
+            \u6D4B\u8BD5\u7ED3\u679C\uFF0C\u8BA8\u8BBA\u95EE\u9898\u89E3\u51B3\u65B9\
+            \u6848\u3002\n7. \u90E8\u7F72\u524D\u51C6\u5907\u4F1A\u8BAE\uFF08\u7B2C\
+            25\u5468\uFF09\n\u65F6\u95F4\uFF1A\u90E8\u7F72\u9636\u6BB5\u5F00\u59CB\
+            \u524D1\u5929\uFF0C\u4E0A\u53489:00 - 10:30\u3002\n\u53C2\u4E0E\u8005\uFF1A\
+            \u9879\u76EE\u7ECF\u7406\u3001\u90E8\u7F72\u56E2\u961F\u3001\u6280\u672F\
+            \u8D1F\u8D23\u4EBA\u3002\n\u76EE\u7684\uFF1A\u786E\u4FDD\u90E8\u7F72\u524D\
+            \u6240\u6709\u51C6\u5907\u5DE5\u4F5C\u5C31\u7EEA\u3002\n8. \u8BD5\u8FD0\
+            \u884C\u8BC4\u5BA1\u4F1A\u8BAE\uFF08\u7B2C32\u5468\uFF09\n\u65F6\u95F4\
+            \uFF1A\u8BD5\u8FD0\u884C\u9636\u6BB5\u7ED3\u675F\u524D1\u5929\uFF0C\u4E0B\
+            \u53482:00 - 4:00\u3002\n\u53C2\u4E0E\u8005\uFF1A\u9879\u76EE\u7ECF\u7406\
+            \u3001\u5168\u4F53\u9879\u76EE\u56E2\u961F\u6210\u5458\u3002\n\u76EE\u7684\
+            \uFF1A\u8BC4\u4F30\u8BD5\u8FD0\u884C\u7ED3\u679C\uFF0C\u6536\u96C6\u7528\
+            \u6237\u53CD\u9988\uFF0C\u51C6\u5907\u6B63\u5F0F\u8FD0\u884C\u3002\n9.\
+            \ \u9879\u76EE\u603B\u7ED3\u4F1A\u8BAE\uFF08\u7B2C33\u5468\uFF09\n\u65F6\
+            \u95F4\uFF1A\u6B63\u5F0F\u8FD0\u884C\u5F00\u59CB\u7B2C1\u5929\uFF0C\u4E0A\
+            \u53489:00 - 11:00\u3002\n\u53C2\u4E0E\u8005\uFF1A\u5168\u4F53\u9879\u76EE\
+            \u56E2\u961F\u6210\u5458\u3001\u9879\u76EE\u8D5E\u52A9\u4EBA\u3002\n\u76EE\
+            \u7684\uFF1A\u603B\u7ED3\u9879\u76EE\u7ECF\u9A8C\uFF0C\u8BA8\u8BBA\u540E\
+            \u7EED\u7EF4\u62A4\u548C\u5347\u7EA7\u8BA1\u5212\u3002\n10. \u5B9A\u671F\
+            \u7EF4\u62A4\u4F1A\u8BAE\uFF08\u7B2C33\u5468\u8D77\uFF0C\u6BCF\u6708\u4E00\
+            \u6B21\uFF09\n\u65F6\u95F4\uFF1A\u6BCF\u6708\u7B2C\u4E00\u5468\u7684\u5468\
+            \u4E00\uFF0C\u4E0B\u53483:00 - 4:00\u3002\n\u53C2\u4E0E\u8005\uFF1A\u7EF4\
+            \u62A4\u56E2\u961F\u3001\u9879\u76EE\u7ECF\u7406\u3002\n\u76EE\u7684\uFF1A\
+            \u8BA8\u8BBA\u7CFB\u7EDF\u7EF4\u62A4\u60C5\u51B5\uFF0C\u89C4\u5212\u7CFB\
+            \u7EDF\u5347\u7EA7\u3002\n11. \u7D27\u6025\u4F1A\u8BAE\n\u65F6\u95F4\uFF1A\
+            \u6839\u636E\u9879\u76EE\u5B9E\u9645\u60C5\u51B5\u5B89\u6392\u3002\n\u53C2\
+            \u4E0E\u8005\uFF1A\u6839\u636E\u95EE\u9898\u6027\u8D28\u786E\u5B9A\u53C2\
+            \u4E0E\u4EBA\u5458\u3002\n\u76EE\u7684\uFF1A\u5FEB\u901F\u54CD\u5E94\u9879\
+            \u76EE\u4E2D\u51FA\u73B0\u7684\u7D27\u6025\u95EE\u9898\u3002\n\u786E\u4FDD\
+            \u6240\u6709\u4F1A\u8BAE\u90FD\u6709\u660E\u786E\u7684\u8BAE\u7A0B\uFF0C\
+            \u5E76\u5728\u4F1A\u540E\u5206\u53D1\u4F1A\u8BAE\u8BB0\u5F55\u548C\u884C\
+            \u52A8\u9879\uFF0C\u4EE5\u4FDD\u6301\u56E2\u961F\u6210\u5458\u95F4\u7684\
+            \u6C9F\u901A\u548C\u9879\u76EE\u7684\u987A\u5229\u8FDB\u884C\u3002\n"
+        selected: true
+        title: LLM 2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1721876020189'
+      position:
+        x: 1332.072430039938
+        y: 413.4335435849668
+      positionAbsolute:
+        x: 1332.072430039938
+        y: 413.4335435849668
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: "\u9879\u76EE\u5B89\u6392\u5982\u4E0B{{#1721876020189.text#}}"
+        desc: ''
+        selected: false
+        title: "\u76F4\u63A5\u56DE\u590D 4"
+        type: answer
+        variables: []
+      height: 106
+      id: '1721876479861'
+      position:
+        x: 1636.072430039938
+        y: 413.4335435849668
+      positionAbsolute:
+        x: 1636.072430039938
+        y: 413.4335435849668
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: "/n\u4E0B\u9762\u6211\u5C06\u4E3A\u60A8\u751F\u6210\u9879\u76EE\u89C4\
+          \u5212\u5B89\u6392/n"
+        desc: ''
+        selected: false
+        title: "\u76F4\u63A5\u56DE\u590D 5"
+        type: answer
+        variables: []
+      height: 103
+      id: '1721876624936'
+      position:
+        x: 1032.072430039938
+        y: 413.4335435849668
+      positionAbsolute:
+        x: 1032.072430039938
+        y: 413.4335435849668
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -698.8083696304936
+      y: -71.69251871258484
+      zoom: 0.7689049437638068
